@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>PERSONAL-PROJECTS</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+         crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+   
+
+         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        <style>
+
+
+
+.logo {
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    color: #666666;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+
+#main-header {
+  transition: all 0.3s ease;
+}
+
+#main-header.scrolled {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 5px 20px rgba(0, 0,0, 0.05);
+}
+
+ .nav-items {
+   display: flex;
+    text-transform: uppercase;
+    gap: 40px;
+    list-style: none;
+  }
+
+.nav-link {
+    color: #666666;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: var(--transition);
+}
+
+
+
+        .nav-link::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background-color: #666666;
+          transition: 0.3s ease-in-out;
+          
+          
+        }
+        .nav-link:hover {
+          color: black;
+        }
+
+        .nav-link:hover::after {
+          width: 100%;
+          background-color: black;
+        }
+    
+ 
+    .navbar-toggler {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+
+    .navbar-toggler-icon {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    display: block;
+    position: relative;
+  }
+  .navbar-toggler-icon::before,
+  .navbar-toggler-icon::after {
+    content: "";
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+  }
+  .navbar-toggler-icon::before {
+    top: -8px;
+  }
+  .navbar-toggler-icon::after {
+    top: 8px;
+  }
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+
+
+.navbar-toggler-icon {
+  width: 30px;
+  height: 30px;
+  transition: var(--transition);
+}
+
+
+        .container{
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project-header.personal{
+            padding: 120px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid #f2f2f2;
+        }
+
+        .page-title{
+        font-size: 64px;
+        color: #000000;
+        margin-bottom: 20px;
+        font-weight: 700;
+        }
+        .page-subtitle{
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+  /* project grallery      */
+
+  .projects-gallery {
+    padding: 80px 0;
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+  
+.filter-btn {
+    background: none;
+    border: 1px solid #cccccc;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background-color:#000000;
+    color: #ffffff;
+    border-color: #000000;
+}
+
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 40px;
+}
+
+.animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card {
+    border: 1px solid #f2f2f2;
+    border-radius: 4px;
+    overflow: hidden;
+
+}
+
+
+
+.project-image {
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+    width: 100%; 
+    top: 0;
+    left: 0;
+    filter: grayscale(100%);
+    transform: scale(1.03);
+    opacity: 0.7;
+}
+
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+
+.project-info {
+    padding: 25px;
+}
+
+
+.project-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-family: "Inter", sans-serif;
+}
+
+
+.project-category {
+    font-size: 14px;
+    color:#666666;
+    margin-bottom: 15px;
+    font-family: "Inter", sans-serif;
+}
+
+
+.project-description {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color:#f2f2f2;
+    font-size: 12px;
+    border-radius: 20px;
+}
+
+
+.project-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.project-link {
+    display: inline-block;
+    color: #666666;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+
+.project-link i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+
+.fa-arrow-right:before {
+    content: "\f061";
+}
+
+.project-link:hover i {
+  transform: translateX(5px);
+}
+
+
+.github-link {
+    display: inline-flex
+;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #f5f5f5;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+
+.project-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .project-card:hover .project-image {
+    transform: translateY(0);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  
+  }
+.github-link i {
+    margin-right: 8px;
+}
+
+/* project cta section */
+
+.project-cta{
+  background-color:#f2f2f2;
+  padding: 80px 0;
+  text-align: center;
+}
+
+
+.cta-title{
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: 700;
+  font-family: "Syne", sans-serif;
+
+
+}
+
+.cta-subtitle{
+font-size: 18px;
+  margin-bottom: 30px;
+ max-width: 600px;
+ margin-left: auto;
+ margin-right: auto;
+ color: #666666;
+
+}
+
+
+.cta-button{
+  display: inline-block;
+  padding: 14px 30px;
+  font-size: 16px;
+  background-color: #000000;
+  color: #f2f2f2;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+
+}
+
+.cta-button:hover {
+  animation: up-down 0.5s infinite;
+}
+
+
+
+@keyframes up-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+.footer{
+  padding: 50px 0;
+  background-color: #ffffff;
+}
+
+
+.footer-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright {
+    font-size: 14px;
+    color:#666666;
+}
+
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+
+.social-link {
+    color:#666666;
+    text-decoration: none;
+    font-size: 18px;
+    transition: var(--transition);
+}
+
+  
+ 
+@media (max-width: 576px) {
+    .page-title {
+        font-size: 32px;
+    }
+}
+
+
+
+@media (max-width: 992px) {
+  #navbarScroll {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: all 0.5s ease;
+    z-index: 100;
+  }
+
+  #navbarScroll.show {
+    right: 0;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+  @media (max-width: 768px) {
+    .nav-items.show {
+      transform: translateX(0);
+    }
+
+    .navbar-toggler {
+      display: block;
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 1100; /* Above the nav */
+    }
+  }
+
+
+  @media (max-width: 576px) {
+    .filter-controls {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 992px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-cta h2 {
+        font-size: 30px;
+    }
+}
+
+        </style>
+    </head>
+
+    <body>
+       <header id="main-header" class="py-3 position-sticky top-0 z-3">
+                <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="logo" href="#">Tobi Adeosun</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+              aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+              <ul class="nav-items ms-auto my-2 my-lg-0 navbar-nav-scroll">
+                <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="/PERSONAL-PROJECTS.html">Personal Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="/About.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html#contact">Contact</a></li>
+
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+            <section class="project-header personal">
+                <div class="container">
+                    <h2 class="page-title">
+                        Personal Projects
+                    </h2>
+                    <p class="page-subtitle">
+                        Experiments, open-source contributions, and passion projects
+
+                    </p>
+                </div>
+            </section>
+
+<!-- project gallary -->
+
+
+<section class="projects-gallery">
+  <div class="container">
+    <!-- Filter Controls -->
+    <div class="filter-controls">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="open-source">
+        Open Source
+      </button>
+      <button class="filter-btn" data-filter="experiment">
+        Experiments
+      </button>
+      <button class="filter-btn" data-filter="tool">Tools</button>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Personal Project 1 -->
+      <div class="project-card animate-on-scroll in-view" data-category="tool open-source">
+        <div class="project-image">
+          <img src="image/flux-builder.jpg" alt="FluxBuilder" loading="lazy">
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">FluxBuilder</h3>
+          <p class="project-category">Development Tool</p>
+          <p class="project-description">
+            A drag-and-drop interface builder for React applications with
+            code generation capabilities.
+          </p>
+          <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Open Source</span>
+          </div>
+          <div class="project-links">
+            <a href="fluxbuilder" class="project-link">
+              View Project <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://github.com/tflux2011/fluxbuilder" target="_blank" rel="noopener" class="github-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal Project 2 -->
+      <div class="project-card animate-on-scroll in-view" data-category="experiment">
+        <div class="project-image">
+          <img src="image/algo-visualizer.jpg" alt="Algorithm Visualizer" loading="lazy">
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Algorithm Visualizer</h3>
+          <p class="project-category">Educational Tool</p>
+          <p class="project-description">
+            Interactive visualization of common algorithms to help
+            understand complex computer science concepts.
+          </p>
+          <div class="project-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Canvas API</span>
+            <span class="tag">Algorithms</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="/algo">
+              View Project <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://github.com/tflux2011/algo-visualizer" target="_blank" rel="noopener" class="github-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal Project 3 -->
+      <div class="project-card animate-on-scroll in-view" data-category="open-source tool">
+        <div class="project-image">
+          <img src="image/react-component-lib.jpg" alt="React Component Library" loading="lazy">
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">React Component Library</h3>
+          <p class="project-category">Open Source</p>
+          <p class="project-description">
+            A collection of reusable React components with customizable
+            themes and accessibility features.
+          </p>
+          <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">Storybook</span>
+            <span class="tag">TypeScript</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">
+              View Docs <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://github.com/tflux2011/react-components" target="_blank" rel="noopener" class="github-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal Project 4 -->
+      <div class="project-card animate-on-scroll in-view" data-category="experiment">
+        <div class="project-image">
+          <img src="image/simple-wp-plugins.jpg" alt="WebGL Experiments" loading="lazy">
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">WebGL Experiments</h3>
+          <p class="project-category">Creative Coding</p>
+          <p class="project-description">
+            A series of visual experiments using WebGL for 3D rendering and
+            interactive graphics in the browser.
+          </p>
+          <div class="project-tags">
+            <span class="tag">WebGL</span>
+            <span class="tag">Three.js</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <a class="project-link" href="/webgl" rel="noopener" target="_blank">
+            View Project <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Personal Project 5 -->
+      <div class="project-card animate-on-scroll in-view" data-category="open-source tool">
+        <div class="project-image">
+          <img src="image/webgl-experiments.jpg" alt="Simple WordPress Plugins" loading="lazy">
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Simple WordPress Plugins</h3>
+          <p class="project-category">open source</p>
+          <p class="project-description">
+            A couple of simple WordPress plugins to enhance the
+            functionality of WordPress sites.
+          </p>
+          <div class="project-tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">PHP</span>
+            <span class="tag">jQuery</span>
+          </div>
+          <div class="project-links">
+            <a class="project-link" href="/wordpress-plugins" rel="noopener" target="_blank">
+              View Project<i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://github.com/tflux2011?tab=repositories&amp;q=&amp;type=&amp;language=php" target="_blank" rel="noopener" class="github-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+   <!-- contact-section         -->
+<section class="project-cta">
+  <div class="container">
+    <h2 class="cta-title">
+      Interested in collaborating on open source?
+    </h2>
+    <p class="cta-subtitle">
+      Let's connect and build something great together
+    </p>
+    <a href="" class="cta-button">Get in Touch</a>
+  </div>
+</section>
+        
+     
+            <!-- plce footer here -->
+             
+    <footer class="footer">
+      <div class="container footer-content">
+        <p class="copyright">© 2025 Tobi Adeosun. All Rights Reserved.</p>
+        <div class="social-links">
+          <a href="" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="" class="social-link"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/tflux2.0/" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </footer>
+       
+        <!-- Bootstrap JavaScript Libraries -->
+
+
+        <script>
+
+         window.addEventListener('scroll', function () {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+
+
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove 'active' class from all
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const filter = button.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category.includes(filter)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+
+          
+              </script>
+
+              
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
